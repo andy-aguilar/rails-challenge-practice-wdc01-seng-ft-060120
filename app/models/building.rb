@@ -23,4 +23,8 @@ class Building < ApplicationRecord
     end
   end
 
+  def rent_total
+    self.offices.length * self.rent_per_floor
+  end
+
 end

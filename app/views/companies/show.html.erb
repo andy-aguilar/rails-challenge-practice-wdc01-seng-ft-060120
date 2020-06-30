@@ -8,6 +8,10 @@
 <% end %>
 </ul>
 
+<h2>Total Rent</h2>
+<%= "$#{@company.total_rent}" %>
+
+
 <h2>Employees:</h2>
 <ul>
 <% @company.employees.each do |employee| %> 
