@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :companies, only: [:index, :show, :new, :create]
   resources :employees, only: [:new, :create, :destroy]
 
+  post "/companies/:id/employees" => "employees#create_by_co", as: :create_by_co
+  delete "/companies/:company_id/empdestroy/:id" => "employees#destroy_by_co", as: :destroy_by_co
+
 end

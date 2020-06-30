@@ -1,0 +1,26 @@
+<h1><%= @company.name %></h1>
+
+<h2>Offices</h2>
+<ul>
+<% @company.offices.each do |office| %>
+<li><%= "Building: #{office.building.name}" %><br>
+<%= "Floor: #{office.floor}" %><br></li>
+<% end %>
+</ul>
+
+<h2>Employees:</h2>
+<ul>
+<% @company.employees.each do |employee| %> 
+<li><%= employee.name %><%= button_to "Fire this employee", destroy_by_co_path(@company.id, employee.id), method: "delete" %></li>
+<% end %>
+
+<h3>Add Employee</h3>
+<%= form_for @employee, url: create_by_co_path(@company.id) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.submit %>
+<% end  %>
+
+<%= link_to "All Companies", companies_path %>
